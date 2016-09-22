@@ -27,7 +27,14 @@ class PlayersController < ApplicationController
 		@player = Player.find(params[:id])
   		@player.update(player_params)
 
-  		redirect_to player_path
+  		redirect_to :action => :index
+	end
+
+	def destroy
+		@player = Player.find(params[:id])
+  		@player.destroy
+
+  		redirect_to players_path
 	end
 
 	private

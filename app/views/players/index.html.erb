@@ -6,7 +6,7 @@
  	  <%= player.name %>
   <%= link_to 'Show' ,  player_path(player) %>
   <%= link_to 'Edit',  edit_player_path(player) %>
-  <%= link_to 'Delete', :controller => 'players', :action => 'destroy', :id => player %>
+  <%= link_to 'Delete', player_path(player), :method => :delete, :data => { :confirm => "Are you sure?"} %>
   </li>
 <% end %>
 </ul>
