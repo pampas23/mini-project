@@ -4,8 +4,8 @@
 <% @players.each do |player| %>
   <li>
  	  <%= player.name %>
-  <%= link_to 'Show', :controller => 'players', :action => 'show', :id => player %>
-  <%= link_to 'Edit', :controller => 'players', :action => 'edit', :id => player %>
+  <%= link_to 'Show' ,  player_path(player) %>
+  <%= link_to 'Edit',  edit_player_path(player) %>
   <%= link_to 'Delete', :controller => 'players', :action => 'destroy', :id => player %>
   </li>
 <% end %>

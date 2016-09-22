@@ -1,0 +1,9 @@
+<%= form_for @player, :url => { :controller => 'players', :action => 'update', :id => @player } do |f| %>
+    <%= f.label :name, "Name" %>
+    <%= f.text_field :name %>
+
+    <%= f.label :rank, "rank" %>
+    <%= f.text_area :rank %>
+
+    <%= f.submit "Update" %>
+<% end %>
