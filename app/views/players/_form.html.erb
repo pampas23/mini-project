@@ -1,3 +1,10 @@
+<% if @player.errors.any? %>
+      <ul>
+      <% @player.errors.full_messages.each do |msg| %>
+        <p>Why Failed?: <%= msg %></p>
+      <% end %>
+      </ul>
+<% end %>
 
     <%= f.label :name, "Name" %>
     <%= f.text_field :name %>
