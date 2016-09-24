@@ -29,9 +29,15 @@ class PlayersController < ApplicationController
 
 	def update
 		@player = Player.find(params[:id])
-  		@player.update(player_params)
-
+  		
+  		if @player.update(player_params)
+  		flash[:notice] = "player was successfully updated"
   		redirect_to :action => :index
+  		else
+  		flash[:alert] = "player updated failed"
+  		render "edit"
+  		end
+
 	end
 
 	def destroy
