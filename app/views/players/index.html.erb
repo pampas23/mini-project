@@ -13,5 +13,5 @@
 <% end %>
 </table>
 </ul>
-<%= link_to 'New player', :controller => 'players', :action => 'new' %>
+<%= link_to 'New player', new_player_path , :class => "btn btn-success" %>
 <%= paginate @players %>
