@@ -1,14 +1,17 @@
 <h1>"Hello Badminton"</h1>
-
-<ul>
+<table class="table table-striped" >
+<tr>Players Name</tr>
+<tr>
 <% @players.each do |player| %>
-  <li>
- 	  <%= player.name %>
-  <%= link_to 'Show' ,  player_path(player) %>
-  <%= link_to 'Edit',  edit_player_path(player) %>
-  <%= link_to 'Delete', player_path(player), :method => :delete, :data => { :confirm => "Are you sure?"} %>
-  </li>
+	<td><%= player.name %></td>
+	<td>
+  <%= link_to 'Show' ,  player_path(player) ,:class => "btn btn-info"%>
+  <%= link_to 'Edit',  edit_player_path(player),:class => "btn btn-primary" %>
+  <%= link_to 'Delete', player_path(player), :method => :delete, :data => { :confirm => "Are you sure?"}, :class => "btn btn-danger" %>
+  </td>
+  </tr>
 <% end %>
+</table>
 </ul>
 <%= link_to 'New player', :controller => 'players', :action => 'new' %>
 <%= paginate @players %>
