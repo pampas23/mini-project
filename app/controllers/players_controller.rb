@@ -10,9 +10,13 @@ class PlayersController < ApplicationController
 
 	def create
 		@player = Player.new(player_params)
-  		@player.save
-
+  		if @player.save
+  		flash[:notice] = "player was successfully created"
   		redirect_to :action => :index
+  		else
+  		flash[:alert] = "player created failed"
+  		render "new"
+  		end
 	end
 
 	def show
