@@ -2,5 +2,5 @@
 <%= form_for @player, :url => { :controller => 'players', :action => 'update', :id => @player } do |f| %>
 	<%= render :partial => 'form', :locals => { :f => f } %>
 
-    <%= f.submit "Update" %>
+    <%= f.submit "Update" ,:class => "btn btn-primary"%>
 <% end %>
