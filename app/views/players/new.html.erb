@@ -1,11 +1,7 @@
 <h1>"New Player"</h1>
 
 <%= form_for @player, :url => { :controller => 'players', :action => 'create' } do |f| %>
-    <%= f.label :name, "Name" %>
-    <%= f.text_field :name %>
-
-    <%= f.label :rank, "rank" %>
-    <%= f.text_area :rank %>
+	<%= render :partial => 'form', :locals => { :f => f } %>
 
     <%= f.submit "Create" %>
 <% end %>
