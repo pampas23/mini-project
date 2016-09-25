@@ -1,4 +1,10 @@
 class PlayersController < ApplicationController
+	before_action :set_player, :only =>[:show, :edit ,:update,:destroy]
+	#每次進到controller先跑一次 
+
+	def set_player
+		@player = Player.find(params[:id])
+	end
 
 	def index
 		@players = Player.page(params[:page]).per(5)
@@ -20,15 +26,15 @@ class PlayersController < ApplicationController
 	end
 
 	def show
-		@player = Player.find(params[:id])
+		#@player = Player.find(params[:id])
 	end
 
 	def edit
-		@player = Player.find(params[:id])
+		#@player = Player.find(params[:id])
 	end
 
 	def update
-		@player = Player.find(params[:id])
+		#@player = Player.find(params[:id])
   		
   		if @player.update(player_params)
   		flash[:notice] = "player was successfully updated"
@@ -41,7 +47,7 @@ class PlayersController < ApplicationController
 	end
 
 	def destroy
-		@player = Player.find(params[:id])
+		#@player = Player.find(params[:id])
   		@player.destroy
 
   		redirect_to players_path
