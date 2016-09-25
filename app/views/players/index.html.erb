@@ -1,4 +1,4 @@
-<h1>"Hello Badminton"</h1>
+<h1>World Badminton Players</h1>
 <table class="table table-striped" >
 <tr>Players Name</tr>
 <tr>
@@ -13,7 +13,7 @@
 <% end %>
 </table>
 
-
+<p>Please register your favorite player below </p>
 <% @player = Player.new %>
 <%= form_for @player, :url =>  players_path, :method => :post  do |f| %>
 	<%= render :partial => 'form', :locals => { :f => f } %>

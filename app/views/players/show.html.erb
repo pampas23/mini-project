@@ -1,6 +1,8 @@
+<h1> <%= @player.name%> 's profile</h1>
+
 <p> Name : <%= @player.name %> </p>
 <p>	Rank : <%= @player.rank %></p>
-<p><%= link_to 'Back to index', players_path %></p>
+<p><%= link_to 'Back to index', players_path ,:class => "btn btn-primary"%></p>
 
 
 
