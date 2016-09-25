@@ -1,5 +1,5 @@
 
-<%= form_for @player, :url => { :controller => 'players', :action => 'update', :id => @player } do |f| %>
+<%= form_for @player, :url => player_path(@player),:method =>:patch do |f| %>
 	<%= render :partial => 'form', :locals => { :f => f } %>
 
     <%= f.submit "Update" ,:class => "btn btn-primary"%>
