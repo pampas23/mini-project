@@ -47,6 +47,7 @@ class PlayersController < ApplicationController
 
 	def edit
 		#@player = Player.find(params[:id])
+		@page = params[:page].to_i 
 	end
 
 	def update
@@ -54,7 +55,8 @@ class PlayersController < ApplicationController
   		
   		if @player.update(player_params)
   		flash[:notice] = "player was successfully updated"
-  		redirect_to :action => :index
+  		@page = params[:page].to_i 
+  		redirect_to players_path(:page => @page)
   		else
   		flash[:alert] = "player updated failed"
   		render "edit"
@@ -65,8 +67,8 @@ class PlayersController < ApplicationController
 	def destroy
 		#@player = Player.find(params[:id])
   		@player.destroy
-
-  		redirect_to players_path
+  		@page = params[:page].to_i 
+  		redirect_to players_path(:page => @page)
 	end
 
 	private

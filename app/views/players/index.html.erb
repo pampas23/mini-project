@@ -6,8 +6,8 @@
 	<td><%= player.name %></td>
 	<td>
   <%= link_to 'Show' ,  player_path(player) ,:class => "btn btn-info"%>
-  <%= link_to 'Edit',  players_path(:id => player.id) ,:class => "btn btn-primary" %>
-  <%= link_to 'Delete', player_path(player), :method => :delete, :data => { :confirm => "Are you sure?"}, :class => "btn btn-danger" %>
+  <%= link_to 'Edit',  players_path(:id => player.id,:page => params[:page]) ,:class => "btn btn-primary" %>
+  <%= link_to 'Delete', player_path(player , :page => params[:page]), :method => :delete, :data => { :confirm => "Are you sure?"}, :class => "btn btn-danger" %>
   </td>
   </tr>
 <% end %>
