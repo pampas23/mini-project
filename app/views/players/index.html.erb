@@ -6,7 +6,7 @@
 	<td><%= player.name %></td>
 	<td>
   <%= link_to 'Show' ,  player_path(player) ,:class => "btn btn-info"%>
-  <%= link_to 'Edit',  edit_player_path(player),:class => "btn btn-primary" %>
+  <%= link_to 'Edit',  players_path(:id => player.id) ,:class => "btn btn-primary" %>
   <%= link_to 'Delete', player_path(player), :method => :delete, :data => { :confirm => "Are you sure?"}, :class => "btn btn-danger" %>
   </td>
   </tr>
@@ -14,11 +14,19 @@
 </table>
 
 <p>Please register your favorite player below </p>
-<% @player = Player.new %>
-<%= form_for @player, :url =>  players_path, :method => :post  do |f| %>
-	<%= render :partial => 'form', :locals => { :f => f } %>
 
-    <%= f.submit "Create"  ,:class => "btn btn-primary"%>
+<%= form_for @player do |f| %>
+	<div class="form-group">
+	<%= f.label :name,"Name" %>
+	<%= f.text_field :name ,:class => "form-control"%>		
+	</div>
+
+	<div class="form-group">
+    <%= f.label :rank, "rank" %>
+    <%= f.text_area :rank ,:class => "form-control"%>
+	</div>
+
+    <%= f.submit @sub, :class => "btn btn-primary"%>
 <% end %>
 
 <%= link_to 'New player', new_player_path , :class => "btn btn-success" %>

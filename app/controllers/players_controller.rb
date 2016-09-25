@@ -8,6 +8,14 @@ class PlayersController < ApplicationController
 
 	def index
 		@players = Player.page(params[:page]).per(5)
+		
+		if params[:id]
+		@player = Player.find(params[:id])
+		@sub = "Update"
+		else
+		@player = Player.new
+		@sub = "new"
+		end
 	end
 
 	def new
@@ -15,7 +23,16 @@ class PlayersController < ApplicationController
 	end
 
 	def create
+
+		if params[:id] != nil
+		@player = Player.find(params[:id])
+		@player.update(player_params)
+		@player.save
+		else
 		@player = Player.new(player_params)
+		end
+
+		
   		if @player.save
   		flash[:notice] = "player was successfully created"
   		redirect_to :action => :index
