@@ -1,6 +1,6 @@
 <h1>"New Player"</h1>
 
-<%= form_for @player, :url => { :controller => 'players', :action => 'create' } do |f| %>
+<%= form_for @player, :url =>  players_path, :method => :post  do |f| %>
 	<%= render :partial => 'form', :locals => { :f => f } %>
 
     <%= f.submit "Create"  ,:class => "btn btn-primary"%>
