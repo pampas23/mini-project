@@ -4,6 +4,7 @@ class CreatePlayers < ActiveRecord::Migration[5.0]
       t.string :name
       t.text :rank
       t.integer :age
+      t.date_select :birth_date
 
       t.timestamps
     end
