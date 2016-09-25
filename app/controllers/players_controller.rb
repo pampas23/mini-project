@@ -31,7 +31,6 @@ class PlayersController < ApplicationController
 		else
 		@player = Player.new(player_params)
 		end
-
 		
   		if @player.save
   		flash[:notice] = "player was successfully created"
