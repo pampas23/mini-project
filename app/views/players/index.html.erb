@@ -12,6 +12,14 @@
   </tr>
 <% end %>
 </table>
-</ul>
+
+
+<% @player = Player.new %>
+<%= form_for @player, :url =>  players_path, :method => :post  do |f| %>
+	<%= render :partial => 'form', :locals => { :f => f } %>
+
+    <%= f.submit "Create"  ,:class => "btn btn-primary"%>
+<% end %>
+
 <%= link_to 'New player', new_player_path , :class => "btn btn-success" %>
 <%= paginate @players %>
