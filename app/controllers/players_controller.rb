@@ -10,11 +10,11 @@ class PlayersController < ApplicationController
 		@players = Player.page(params[:page]).per(5)
 		
 		if params[:id]
-		@player = Player.find(params[:id])
-		@sub = "Update"
+			@player = Player.find(params[:id])
+			@sub = "Update"
 		else
-		@player = Player.new
-		@sub = "new"
+			@player = Player.new
+			@sub = "new"
 		end
 	end
 
@@ -23,21 +23,21 @@ class PlayersController < ApplicationController
 	end
 
 	def create
-
+		@players = Player.page(params[:page]).per(5)
 		if params[:id] != nil
-		@player = Player.find(params[:id])
-		@player.update(player_params)
-		@player.save
+			@player = Player.find(params[:id])
+			@player.update(player_params)
+			@player.save
 		else
-		@player = Player.new(player_params)
+			@player = Player.new(player_params)
 		end
 		
   		if @player.save
-  		flash[:notice] = "player was successfully created"
-  		redirect_to :action => :index
+  			flash[:notice] = "player was successfully created"
+  			redirect_to :action => :index
   		else
-  		flash[:alert] = "player created failed"
-  		render "new"
+  			flash[:alert] = "player created failed"
+  			render :action => :index
   		end
 	end
 
@@ -52,14 +52,14 @@ class PlayersController < ApplicationController
 
 	def update
 		#@player = Player.find(params[:id])
-  		
+  		@players = Player.page(params[:page]).per(5)
   		if @player.update(player_params)
-  		flash[:notice] = "player was successfully updated"
-  		@page = params[:page].to_i 
-  		redirect_to players_path(:page => @page)
+  			flash[:notice] = "player was successfully updated"
+  			@page = params[:page].to_i
+  			redirect_to players_path(:page => @page)
   		else
-  		flash[:alert] = "player updated failed"
-  		render "edit"
+  			flash[:alert] = "player updated failed"
+  			render :action => :index
   		end
 
 	end
