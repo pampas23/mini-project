@@ -7,9 +7,9 @@ Players Name
 <% @players.each do |player| %>
 	<td><%= player.name %></td>
 	<td>
-  <%= link_to 'Show' ,  player_path(player) ,:class => "btn btn-info"%>
-  <%= link_to 'Edit',  players_path(:id => player.id,:page => params[:page]) ,:class => "btn btn-primary" %>
-  <%= link_to 'Delete', player_path(player , :page => params[:page]), :method => :delete, :data => { :confirm => "Are you sure?"}, :class => "btn btn-danger" %>
+  	<%= link_to 'Show' ,  player_path(player) ,:class => "btn btn-info"%>
+ 	<%= link_to 'Edit',  players_path(:id => player.id,:page => params[:page]) ,:class => "btn btn-primary" %>
+ 	<%= link_to 'Delete', player_path(player , :page => params[:page]), :method => :delete, :data => { :confirm => "Are you sure?"}, :class => "btn btn-danger" %>
   </td>
   </tr>
 <% end %>
@@ -20,18 +20,23 @@ Players Name
 
 <%= form_for @player do |f| %>
 	<div class="form-group">
-	<%= f.label :name,"Name" %>
-	<%= f.text_field :name ,:class => "form-control"%>		
+		<%= f.label :name,"Name" %>
+		<%= f.text_field :name ,:class => "form-control"%>		
 	</div>
 
 	<div class="form-group">
-    <%= f.label :rank, "rank" %>
-    <%= f.text_area :rank ,:class => "form-control"%>
+	    <%= f.label :rank, "Rank" %>
+	    <%= f.text_area :rank ,:class => "form-control"%>
 	</div>
 
 	<div class="form-group">
-    <%= f.label :age, "age" %>
-    <%= f.text_area :age ,:class => "form-control"%>
+	    <%= f.label :age, "Age" %>
+	    <%= f.text_area :age ,:class => "form-control"%>
+	</div>
+	
+	<div class="form-group">
+	    <%= f.label :birth_day, "Birth Day" %>
+	    <%= f.date_select :birth_day ,:class => "form-control"%>
 	</div>
 
 
